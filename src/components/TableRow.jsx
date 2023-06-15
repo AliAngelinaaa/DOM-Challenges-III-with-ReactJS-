@@ -6,7 +6,7 @@ class TableRow extends Table{
         super(props);
     }
     render(){
-        return
+        return <tr>{tableCells}</tr>;
     }
 }
 export default TableRow;
