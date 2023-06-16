@@ -12,8 +12,8 @@ class App extends Component{
     render(){
         return<div>
             <Table></Table>
-            <TableCell></TableCell>
             <TableRow></TableRow>
+            <TableCell></TableCell>
             <button onclick ="addRow">Add Row</button>
             <button onclick ="addCol">Add Column</button>
         </div>

@@ -6,7 +6,13 @@ class TableCell extends Component{
         super(props);
     }
     render(){
-        return  <td></td>
+        return <td style={{
+            height: "50px",
+            width: "50px",
+            backgroundColor:"white",
+            border: "1px solid black"
+        }}></td>
     }
+    
 }
 export default TableCell;
