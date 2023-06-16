@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import TableCell from './TableCell';
 
-class TableRow extends Table{
+class TableRow extends Component{
     constructor(props){
         super(props);
     }
     render(){
-        return
+        return <tr></tr>
     }
 }
 export default TableRow;
