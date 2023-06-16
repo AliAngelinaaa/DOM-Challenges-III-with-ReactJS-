@@ -6,7 +6,7 @@ class Table extends Component{
         super(props);
     }
     render(){
-        return<table></table>
+        return<table><tbody> </tbody></table>
     }
 }
 export default Table;
