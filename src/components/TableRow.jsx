@@ -1,12 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import TableCell from './TableCell';
 
-class TableRow extends Component{
-    constructor(props){
+class TableRow extends Table {
+    constructor(props) {
         super(props);
     }
-    render(){
-        return <tr></tr>
+
+    renderTableCells(columns, selectedColor) {
+        const tableCells = [];
+
+        for (let i = 0; i < columns; i++) {
+            tableCells.push(<TableCell key={i} selectedColor={selectedColor} />);
+        }
+
+        return tableCells;
+    }
+
+    render() {
+        const { columns, selectedColor } = this.props;
+        const tableCells = this.renderTableCells(columns, selectedColor);
+
+        return <tr>{tableCells}</tr>;
     }
 }
 export default TableRow;
