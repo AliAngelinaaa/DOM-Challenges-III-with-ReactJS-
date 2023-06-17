@@ -24,8 +24,9 @@ class TableRow extends Component{
             (_, index) => <TableCell key={index}/>);
         console.log(tableCells);
         return <tr>
-            {tableCells}
-            {/* <TableCell></TableCell> */}
+            {/* Render the TableCell component mutiple times by using the Array().fill()method.
+             The numbers of TableCell component is based on (this.props.setCol+1), which is the number of columns. */}
+            {Array(this.props.setCol+1).fill(<TableCell />)}
             </tr>;
     }
 }

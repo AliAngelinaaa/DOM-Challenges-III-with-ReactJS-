@@ -1,8 +1,6 @@
 import React,{Component,ReactPropTypes} from "react";
 import { Table,TableCell,TableRow } from "./";
-// import Table from "./Table";
-// import TableCell from "./TableCell";
-// import TableRow from "./TableRow";
+
 
 
 class App extends Component{
@@ -28,12 +26,6 @@ class App extends Component{
         this.setState({ col : this.state.col + 1});
     }
 
-    // removeRow() {
-    //     this.setState((prevState) => ({
-    //         rows: Math.max(prevState.rows - 1, 0)
-    //     }));
-    // }
-
     // colorChange(event) {
     //     this.setState({
     //       selColor: event.target.value,
@@ -44,11 +36,8 @@ class App extends Component{
 
         return <div>
             <button onClick={this.addRow}>Add Row</button>
-            <button onClick={this.addCol}>Add Column</button>
-            <button onClick={this.removeRow}>Remove Row</button>
-            <button onClick={this.removeCell}>Remove Cell</button>
-            
-            {/* pass row and col as props to  */}
+            <button onClick={this.addCol}>Add Column</button>          
+            {/* pass row and col as props to Table component*/}
             <Table onClickAddRows = {this.state.rows} onClickAddCols = {this.state.col}/>
             {/* <select value={selColor} onChange={(event) => this.colorChange(event)}>
                 <option value="white">White</option>
