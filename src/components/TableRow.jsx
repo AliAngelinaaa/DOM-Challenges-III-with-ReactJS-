@@ -17,10 +17,13 @@ class TableRow extends Component{
     }
 
     render() {
-        const { columns, selectedColor } = this.props;
-        const tableCells = this.renderTableCells(columns, selectedColor);
+        // const { columns, selectedColor } = this.props;
+        // const tableCells = this.renderTableCells(columns, selectedColor);
 
-        return <tr>{tableCells}</tr>;
+        return <tr>
+            {/* {tableCells} */}
+            <TableCell></TableCell>
+            </tr>;
     }
 }
 export default TableRow;

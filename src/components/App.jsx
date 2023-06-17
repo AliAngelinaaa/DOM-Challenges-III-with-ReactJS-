@@ -12,40 +12,41 @@ class App extends Component{
             rows: 0,
             col: 0,
         }
+    this.addRow = this.addRow.bind(this);
+    this.addCol = this.addCol.bind(this);
     }
+    
     addRow() {
-        this.setState((prevState) => ({
-            rows: prevState.rows + 1
-        }));
+        console.log("Hi this is function addRow");
+        this.setState({ rows : this.state.rows + 1});
     }
-    addCell() {
-        this.setState((prevState) => ({
-            col: prevState.col + 1
-        }));
+
+    addCol() {
+        console.log("Hi this is function addCol");
+        this.setState({ col : this.state.col + 1});
     }
-    removeRow() {
-        this.setState((prevState) => ({
-            rows: Math.max(prevState.rows - 1, 0)
-        }));
-    }
-    removeCell() {
-        this.setState((prevState) => ({
-            col: Math.max(prevState.col - 1, 0)
-        }));
-    }
-    colorChange(event) {
-        this.setState({
-          selColor: event.target.value,
-        });
-      }
+
+    // removeRow() {
+    //     this.setState((prevState) => ({
+    //         rows: Math.max(prevState.rows - 1, 0)
+    //     }));
+    // }
+
+    // colorChange(event) {
+    //     this.setState({
+    //       selColor: event.target.value,
+    //     });
+    //   }
 
     render() {
+
         return <div>
-            <TableCell/>
-            <button onclick="addRow">Add Row</button>
-            <button onclick="removeRow">Remove Row</button>
-            <button onclick="addCell">Add Cell</button>
-            <button onclick="removeCell">Remove Cell</button>
+            <button onClick={this.addRow}>Add Row</button>
+            <button onClick={this.addCol}>Add Column</button>
+            <p>rows: {this.state.rows}</p>
+            <button onClick={this.removeRow}>Remove Row</button>
+            <button onClick={this.removeCell}>Remove Cell</button>
+            <Table onClickAddRows = {this.state.rows} onClickAddCols = {this.state.col}/>
             {/* <select value={selColor} onChange={(event) => this.colorChange(event)}>
                 <option value="white">White</option>
                 <option value="red">Red</option>
