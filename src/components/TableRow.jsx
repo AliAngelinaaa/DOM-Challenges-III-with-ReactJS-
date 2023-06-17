@@ -15,14 +15,17 @@ class TableRow extends Component{
 
         return tableCells;
     }
+    
 
     render() {
         // const { columns, selectedColor } = this.props;
         // const tableCells = this.renderTableCells(columns, selectedColor);
-
+        const tableCells = Array.from({ length: this.props.setCol+1 },
+            (_, index) => <TableCell key={index}/>);
+        console.log(tableCells);
         return <tr>
-            {/* {tableCells} */}
-            <TableCell></TableCell>
+            {tableCells}
+            {/* <TableCell></TableCell> */}
             </tr>;
     }
 }

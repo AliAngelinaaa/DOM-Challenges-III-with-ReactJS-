@@ -18,13 +18,17 @@ class Table extends Component{
     
     //     return tableRows;
     //   }
+
     render() {
     //     const { rows, columns, selectedColor } = this.props;
     // const tableRows = this.renderTableRows(rows, columns, selectedColor);
     console.log(this.props.onClickAddRows);
     console.log(this.props.onClickAddCols);
     // var {numOfRows} = this.props.onClickAddRows;
-    const tableRow = Array.from({ length: this.props.onClickAddRows }, (_, index) => <TableRow key={index} />);
+
+    const tableRow = Array.from({ length: this.props.onClickAddRows },
+       (_, index) => <TableRow key={index} setCol={this.props.onClickAddCols}/>);
+       console.log(tableRow);
     return(
       <table>
         <tbody>

@@ -15,12 +15,14 @@ class App extends Component{
     this.addRow = this.addRow.bind(this);
     this.addCol = this.addCol.bind(this);
     }
-    
+
+    //increment the value of row
     addRow() {
         console.log("Hi this is function addRow");
         this.setState({ rows : this.state.rows + 1});
     }
 
+    //increment the value of column
     addCol() {
         console.log("Hi this is function addCol");
         this.setState({ col : this.state.col + 1});
@@ -43,9 +45,10 @@ class App extends Component{
         return <div>
             <button onClick={this.addRow}>Add Row</button>
             <button onClick={this.addCol}>Add Column</button>
-            <p>rows: {this.state.rows}</p>
             <button onClick={this.removeRow}>Remove Row</button>
             <button onClick={this.removeCell}>Remove Cell</button>
+            
+            {/* pass row and col as props to  */}
             <Table onClickAddRows = {this.state.rows} onClickAddCols = {this.state.col}/>
             {/* <select value={selColor} onChange={(event) => this.colorChange(event)}>
                 <option value="white">White</option>
