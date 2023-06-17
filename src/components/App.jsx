@@ -1,8 +1,8 @@
 import React,{Component,ReactPropTypes} from "react";
-//import { Table,TableCell,TableRow } from "./components";
-import Table from "./Table";
-import TableCell from "./TableCell";
-import TableRow from "./TableRow";
+import { Table,TableCell,TableRow } from "./components";
+// import Table from "./Table";
+// import TableCell from "./TableCell";
+// import TableRow from "./TableRow";
 
 
 class App extends Component{
@@ -11,7 +11,7 @@ class App extends Component{
     }
     render(){
         return<div>
-            <Table id="grid"></Table>
+            <Table> </Table>
             <TableRow></TableRow>
             <TableCell></TableCell>
             <button onclick ="addRow">Add Row</button>
