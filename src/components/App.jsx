@@ -12,6 +12,8 @@ class App extends Component{
         }
     this.addRow = this.addRow.bind(this);
     this.addCol = this.addCol.bind(this);
+    this.delRow = this.delRow.bind(this);
+    this.delCol = this.delCol.bind(this);
     }
 
     //increment the value of row
@@ -26,6 +28,16 @@ class App extends Component{
         this.setState({ col : this.state.col + 1});
     }
 
+    delRow() {
+        console.log("Hi this is function delRow");
+        this.setState({ rows : this.state.rows - 1});
+    }
+
+    delCol() {
+        console.log("Hi this is function delCol");
+        this.setState({ col : this.state.col - 1});
+    }
+
     // colorChange(event) {
     //     this.setState({
     //       selColor: event.target.value,
@@ -36,7 +48,9 @@ class App extends Component{
 
         return <div>
             <button onClick={this.addRow}>Add Row</button>
-            <button onClick={this.addCol}>Add Column</button>          
+            <button onClick={this.addCol}>Add Column</button>
+            <button onClick={this.delRow}>Delete Row</button>  
+            <button onClick={this.delCol}>Delete Column</button>            
             {/* pass row and col as props to Table component*/}
             <Table onClickAddRows = {this.state.rows} onClickAddCols = {this.state.col}/>
             {/* <select value={selColor} onChange={(event) => this.colorChange(event)}>
