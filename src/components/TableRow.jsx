@@ -26,7 +26,7 @@ class TableRow extends Component{
         return <tr>
             {/* Render the TableCell component mutiple times by using the Array().fill()method.
              The numbers of TableCell component is based on (this.props.setCol+1), which is the number of columns. */}
-            {Array(this.props.setCol+1).fill(<TableCell />)}
+            {Array(this.props.setCol+1).fill(<TableCell selectedColor={this.props.selectedColor}/>)}
             </tr>;
     }
 }

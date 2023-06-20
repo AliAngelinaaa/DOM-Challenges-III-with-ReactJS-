@@ -21,7 +21,7 @@ class Table extends Component{
           {/* Render the TableRow component mutiple times by using the Array().fill()method.
              The numbers of TableRow component is based on this.props.onClickAddRows, which is the number of rows.
              setCol is the props pass to TableRow  */}
-          {Array(this.props.onClickAddRows).fill(<TableRow setCol={this.props.onClickAddCols}/>)}
+          {Array(this.props.onClickAddRows).fill(<TableRow setCol={this.props.onClickAddCols} selectedColor={this.props.selectedColor}/>)}
         </tbody>
       </table>
     )
