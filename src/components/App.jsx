@@ -1,57 +1,73 @@
 import React,{Component,ReactPropTypes} from "react";
-//import { Table,TableCell,TableRow } from "./components";
-import Table from "./Table";
-import TableCell from "./TableCell";
-import TableRow from "./TableRow";
+import { Table,TableCell,TableRow } from "./";
 
 
-class App extends Component {
+
+class App extends Component{
     constructor(props) {
         super(props);
         this.state = {
             rows: 0,
             col: 0,
+            cellColor:''
         }
+    this.addRow = this.addRow.bind(this);
+    this.addCol = this.addCol.bind(this);
+    this.delRow = this.delRow.bind(this);
+    this.delCol = this.delCol.bind(this);
+    this.pickColor = this.pickColor.bind(this);
     }
+
+    //increment the value of row
     addRow() {
-        this.setState((prevState) => ({
-            rows: prevState.rows + 1
-        }));
+        console.log("Hi this is function addRow");
+        this.setState({ rows : this.state.rows + 1});
     }
-    addCell() {
-        this.setState((prevState) => ({
-            col: prevState.col + 1
-        }));
+
+    //increment the value of column
+    addCol() {
+        console.log("Hi this is function addCol");
+        this.setState({ col : this.state.col + 1});
     }
-    removeRow() {
-        this.setState((prevState) => ({
-            rows: Math.max(prevState.rows - 1, 0)
-        }));
+
+    delRow() {
+        console.log("Hi this is function delRow");
+        this.setState({ rows : this.state.rows - 1});
     }
-    removeCell() {
-        this.setState((prevState) => ({
-            col: Math.max(prevState.col - 1, 0)
-        }));
+
+    delCol() {
+        console.log("Hi this is function delCol");
+        this.setState({ col : this.state.col - 1});
     }
-    colorChange(event) {
-        this.setState({
-          selColor: event.target.value,
-        });
-      }
+
+    // colorChange(event) {
+    //     this.setState({
+    //       selColor: event.target.value,
+    //     });
+    //   }
+    pickColor(e){
+        this.setState({ cellColor : this.state.cellColor = e.target.value});
+        console.log(this.state.cellColor);
+    }
 
     render() {
+
         return <div>
-            <button onclick="addRow">Add Row</button>
-            <button onclick="removeRow">Remove Row</button>
-            <button onclick="addCell">Add Cell</button>
-            <button onclick="removeCell">Remove Cell</button>
-            <select value={selColor} onChange={(event) => this.colorChange(event)}>
-                <option value="white">White</option>
+            <button onClick={this.addRow}>Add Row</button>
+            <button onClick={this.addCol}>Add Column</button>
+            <button onClick={this.delRow}>Delete Row</button>  
+            <button onClick={this.delCol}>Delete Column</button>
+            <label htmlFor="colorSelect">Choose Color:</label>
+            <select id="colorSelect" onClick = {this.pickColor}>
+                <option>Options</option>
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
                 <option value="green">Green</option>
-            </select>
-            <Table rows={rows} columns={columns} selectedColor={selectedColor} />
+                <option value="yellow">Yellow</option>
+            </select>            
+            {/* pass row and col as props to Table component*/}
+            <Table onClickAddRows = {this.state.rows} onClickAddCols = {this.state.col} selectedColor={this.state.cellColor}/>
+            {/* <Table rows={rows} columns={columns} selectedColor={selectedColor} /> */}
         </div>
 
     }
